@@ -1,11 +1,11 @@
 {
-  "name": "Workshop test",
-  "short_name": "Workshop",
+  "name": "Risky Throw",
+  "short_name": "throw",
   "theme_color": "#c321f3",
   "background_color": "#1f9cda",
   "display": "fullscreen",
-  "Scope": "/PWA2/",
-  "start_url": "/PWA2/",
+  "Scope": "/throw/",
+  "start_url": "/throw/",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
