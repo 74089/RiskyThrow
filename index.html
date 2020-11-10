@@ -1,61 +1,59 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="manifest" href="manifest.json">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Risky Throw</title>
-  <meta name="author" content="401532">
-  <meta name="description" content="Throw it up, get a score">
-  <meta name="keywords" content="pwa,risky,throw">
-  <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
-  <link rel="stylesheet" href="css/accelerometer.css" type="text/css">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <meta name="description" content="Risky-Throw">
+  <meta name="theme-color" content="#0071c5">
+  <!-- Origin Trial Token, feature = Generic Sensors, origin = https://intel.github.io, expires = 2018-02-27 -->
+  <meta http-equiv="origin-trial" data-feature="Generic Sensors" data-expires="2018-02-27" content="AjL+UlBzLjx+0FPXrML6IMA/Ax9GsO/7rUvV/aaKkh3KknUSwDBgymn0d3NhGeRMNS7FlYD73ernqvZNoqzNMw4AAABWeyJvcmlnaW4iOiJodHRwczovL2ludGVsLmdpdGh1Yi5pbzo0NDMiLCJmZWF0dXJlIjoiR2VuZXJpY1NlbnNvciIsImV4cGlyeSI6MTUxOTczOTAwNX0=">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="shortcut icon" sizes="192x192" href="images/app-icon-192.png">
+  <script src="main.js"></script>
+  <script src="gauge/gauge.js"></script>
 </head>
 
 <body>
-  <!-- <div id="website_container">
-    <div class="content">
-      <header>
-        <h1>Hey</h1>
-      </header>
-      <main>
-        <strong>F12</strong>
-      </main>
-      <p>I think there is also a ios download button but im not sure how to check that</p>
-    </div>
-  </div>
-  <div class="install" id="installbutton">Install</div>
-  <div class="iosinstallhint" id="iosinstallhint">Add this app to your homescreen by pression [^]</div> -->
   <div class="container" align="center">
-        <div id="intro" class="punchAnimation">
-           <img class="logo" src="images/cat.png"/>
-           <div class="readyToPunch">
-              Ready to measure the strength of your punch?
-           </div>
-        </div>
-    </div>
+      <div id="intro" class="punchAnimation">
+         <img class="logo" src="images/punchometer.png"/>
+         <div class="readyToPunch">
+            Ready to measure how high you can throw?
+         </div>
+      </div>
+  </div>
 
-    <div id="game" class="game">
-        <div id="game_text" class="shakeToStart" style="display:none;">
-                Shake device and find out!
-        </div>
-        <canvas id="gauge"></canvas>
-        <div id="measurement" class="shakeToStart" style="display:none;">
-          <div id="preview">0</div>
-          <div>km/h</div>
-        </div>
-    </div>
+  <div id="game" class="game">
+      <div id="game_text" class="shakeToStart" style="display:none;">
+              Shake device and find out!
+      </div>
+      <canvas id="gauge"></canvas>
+      <div id="measurement" class="shakeToStart" style="display:none;">
+        <div id="preview">0</div>
+        <div>Meters</div>
+      </div>
+  </div>
 
+  <script>
+    // Service worker
+    if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('sw.js').then(function(registration) {
+                    }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+    }
 
-
-
-
-  <script src="js/scripts.js" type="text/javascript"></script>
-  <script src="js/accelerometer.js" type="text/javascript"></script>
-  <script src="gauge/gauge.js"></script>
+    // Entry point after animation
+    let intro = document.getElementById("intro");
+    function onAnimationEnd() {
+        intro.removeEventListener("animationend", onAnimationEnd);
+        setTimeout(main, 2000);
+    }
+    intro.addEventListener("animationend", onAnimationEnd, false);
+  </script>
 </body>
-
 </html>

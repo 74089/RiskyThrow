@@ -4,7 +4,7 @@ var measurement = null;
 var gauge = null;
 var acl = null;
 var speedCalculator = null;
-var quotes = ["Punch not detected", "Great punch!", "Roll with the punches!"];
+var quotes = ["Throw not detected", "Great throw!", "Throw higher next time", "Come on a little bit higher", "I am not responsible for anything"];
 
 
 // Calculates the *first* velocity peak about X axis, or exiting on timeout.
@@ -141,7 +141,7 @@ function setToInitialState() {
       shaking = false;
       acl.removeEventListener('reading', onreading);
       setMeasurement(0);
-      setGameText("Punch now!");
+      setGameText("Throw now!");
       speedCalculator.start();
     }
   }
