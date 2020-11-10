@@ -1,2 +1,5 @@
 # Kast
-A PWA website me and Ashley made for FHICT Smart Mobile S3 late 2020
+A PWA website where the goal is to throw your device as high as possible!
+
+# Documentation
+TBA
