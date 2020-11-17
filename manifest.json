@@ -4,8 +4,8 @@
   "theme_color": "#c321f3",
   "background_color": "#1f9cda",
   "display": "fullscreen",
-  "Scope": "/throw/",
-  "start_url": "/throw/",
+  "Scope": "/throw3/",
+  "start_url": "/throw3/",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
